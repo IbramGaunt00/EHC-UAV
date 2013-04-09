@@ -114,6 +114,11 @@ void loop ()
      xerror = ((int)compass.a.x)-xhead;
      yerror = ((int)compass.a.y)-yhead;
      zerror = ((int)compass.a.z)-zhead;
+//******************************************************************* IMPORTANT: Each axis is named for the rotation of the aircraft (i.e. Yaw=x, Pitch=y and Roll=z)    
+     if (xhead-xerror == !0)
+     {
+       rudder.write((int)(xhead-xerror)/5);
+     }
      Serial.print("  X: ");
      Serial.print((int) compass.a.x);
      Serial.print("  Y: ");
